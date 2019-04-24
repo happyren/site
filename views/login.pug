@@ -1,0 +1,12 @@
+html
+    head
+        title Login
+    body
+        h1#pageTitle Login your existing account!
+        form(action="/login", method="post")
+            div.form-group
+                label(for='name') Username:
+                input#name.form-control(type='text', placeholder='Your username' name='name')
+            div.form-group
+                label(for='password') Password:
+                input#password.form-control(type='password' name='password')

@@ -15,12 +15,12 @@ This website is built with (and any result may relate to practical version of mo
 
 - [ ] "/" homepage 
   - [ ] GET with user authentication token not set shall include options for register and login
-  - [ ] GET with user authentication token set shall include a search bar
 - [ ] "/register" register page can be GET and POST
   - [ ] GET method would return the register page
   - [ ] POST method would allow posting user data to server for registering
 - [ ] "/login" login page can be GET and POST
   - [ ] GET method would return the login page
   - [ ] POST method would allow posting username + password for login
-- [ ] "/username" onkeyup event check whether intended username is available
+- [ ] "/username" onkeyup event POST check whether intended username is available
 - [ ] "/search" POST method would post search query to the server asking result
+- [ ] "/account" GET with user authentication token set shall include a search bar
