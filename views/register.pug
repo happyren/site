@@ -1,12 +1,51 @@
 html
     head
         title Register
+        link(rel="stylesheet", href="/css/stylesheet.css")
+        link(rel="stylesheet", href="/css/password.css")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js")
+        script(src="/javascript/password.js")
+        script(src="/javascript/username.js")
     body
-        h1#pageTitle Register a new account!
-        form(action="/register", method="post")
-            div.form-group
-                label(for='name') Username:
-                input#name.form-control(type='text', placeholder='Your username' name='name')
-            div.form-group
-                label(for='password') Password:
-                input#password.form-control(type='password' name='password')
+        .container      
+            //- Navigation bar
+            nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+                a.navbar-brand(href='/') Test Site
+                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item
+                            a.nav-link(href='/') Home
+                        li.nav-item.active
+                            a.nav-link(href='') 
+                                | Register
+                                span.sr-only (current)
+                        li.nav-item
+                            a.nav-link(href='/login') Login
+
+            //- Post registration message
+            if user
+                p(style="color:green;")
+                    | Congradulation #{user.name}, your registration is successful!
+            if error
+                p(style="color:red;")
+                    | Registration failed: #{error.message}
+
+            //- Registration form
+            form(action="/register", method="post")
+                div.form-group
+                    label(for='name') Username:
+                    input#name.form-control(type='text', placeholder='Your username' onkeyup="checkUsername(this)" name='name' required)
+                    span#usercheck
+                div.form-group
+                    label(for='password') Password:
+                    input#password.form-control(type='password', placeholder='Your password' onkeyup="checkPassword(this)" minlength="8" maxlength="128" name='password')
+                div.form-group
+                    meter#password-strength-meter(max="4")
+                    p#password-strength-text
+                input.btn.btn-primary(type='submit' value="register")
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+        script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js") 
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")

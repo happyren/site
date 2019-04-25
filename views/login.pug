@@ -1,12 +1,30 @@
 html
     head
         title Login
+        link(rel="stylesheet", href="/css/stylesheet.css")
     body
-        h1#pageTitle Login your existing account!
-        form(action="/login", method="post")
-            div.form-group
-                label(for='name') Username:
-                input#name.form-control(type='text', placeholder='Your username' name='name')
-            div.form-group
-                label(for='password') Password:
-                input#password.form-control(type='password' name='password')
+        .container
+            nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+                a.navbar-brand(href='/') Test Site
+                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item
+                            a.nav-link(href='/') Home
+                        li.nav-item
+                            a.nav-link(href='/register') Register
+                        li.nav-item.active
+                            a.nav-link(href='') Login
+                            span.sr-only (current)
+            form(action="/login", method="post")
+                div.form-group
+                    label(for='name') Username:
+                    input#name.form-control(type='text', placeholder='Your username' name='name')
+                div.form-group
+                    label(for='password') Password:
+                    input#password.form-control(type='password', placeholder='Your password' name='password')
+                button.btn.btn-primary(type='submit') Login
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+        script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js") 
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")

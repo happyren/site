@@ -1,10 +1,29 @@
 html
     head
         title Welcome to the Target Site
-        link(rel='stylesheet', href='../static/css/stylesheet.css')
+        link(rel="stylesheet", href="/css/stylesheet.css")
     body
-        h1#pageTitle Welcome to the Target Site!
-        a(href='/register') Register
-        a(href='/login') Login
-        p.description. 
-            This is a auxiliary website providing general entry points on receving malicious traffic for **SQL injection**.
+        .container
+            nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+                a.navbar-brand(href='/') Test Site
+                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item.active
+                            a.nav-link(href='')
+                                | Home 
+                                span.sr-only (current)
+                        li.nav-item
+                            a.nav-link(href='/register') Register
+                        li.nav-item
+                            a.nav-link(href='/login') Login
+            br
+            br
+            br
+            br
+            p.h3
+                | This is a auxiliary website as a target for SQL-injection attack, SQL-injection network traffic data is collected based on this website.
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+        script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js") 
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
