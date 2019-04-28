@@ -23,10 +23,13 @@ This website is built with (and any result may relate to practical version of mo
   - [x] POST method would allow posting username + password for login
 - [x] "/username" onkeyup event POST check whether intended username is available
 - [x] "/password" onkeyup event POST check whether intended password is strong enough
-- [ ] "/search" POST method would post search query to the server asking result
+- [x] "/search" POST method would post search query to the server asking result
 - [x] "/account" after login, a account page should be shown.
+- [x] "/movies" POST method as RESTful API posting a movie to movies collection.
 
 ## Endpoints for mounting an SQL injection
 
 - Register page form submission.
 - Login page form submission.
+- Index page search form submission.
+- "POST /movies" RESTful API access.

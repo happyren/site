@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const zxcvbn = require('zxcvbn');
 const { User, validate } = require('./models/user');
+const { Movie, validateMovie } = require('./models/movie');
 
 // Init app
 const app = express();
@@ -94,13 +95,37 @@ app.post('/password', (req, res) => {
     });
 });
 
-app.post('/search', (req, res) => {
+app.post('/search', async (req, res) => {
     query = req.body.query;
-    res.render('index', {
-        results: {
-            
+    const movie = await Movie.findOne({ title: query });
+    if(!movie) return res.status(404).render('index', {
+        error: {
+            message: 'movie not exist!'
         }
+    });
+    res.render('index', {
+        results: movie
+    });
+});
+
+app.post('/movies', async (req, res) => {
+    const { error } = validateMovie(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
+    const movie = new Movie({
+        title: req.body.title,
+        numberInStock: req.body.numberInStock,
+        dailyRentalRate: req.body.dailyRentalRate
     })
+
+    try {
+        await movie.save();
+        res.send(movie);
+    } catch (err) {
+        for (field in err) {
+            res.send(err.errors[field].message);
+        }
+    }
 });
 
 app.get('/account', (req, res) => {

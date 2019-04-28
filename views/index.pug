@@ -25,7 +25,10 @@ html
                     input#name.form-control(type='text', placeholder='Search' name='query' required)
             if results
                 p
-                    | lalal.
+                    | "#{results.title}" currently has #{results.numberInStock} in stock costing #{results.dailyRentalRate} per day.
+            if error
+                p
+                    | #{error.message}
             br
             br
             br
