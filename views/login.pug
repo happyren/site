@@ -17,6 +17,9 @@ html
                         li.nav-item.active
                             a.nav-link(href='') Login
                             span.sr-only (current)
+            if error
+                p(style="color:red;")
+                    | Login failed! user or password in valid！
             form(action="/login", method="post")
                 div.form-group
                     label(for='name') Username:

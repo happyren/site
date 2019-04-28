@@ -1,0 +1,24 @@
+html
+    head
+        title Account
+        link(rel="stylesheet", href="/css/stylesheet.css")
+    body
+        .container
+            nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+                a.navbar-brand(href='/account') Test Site
+                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item.active
+                            a.nav-link(href='/account')
+                                | Home 
+                                span.sr-only (current)
+                        li.nav-item
+                            a.nav-link(href='/login') Log out
+            p
+                | Congrats, #{user.name} can login successfully!
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+        script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js") 
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")

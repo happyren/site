@@ -20,6 +20,14 @@ html
                             a.nav-link(href='/login') Login
             br
             br
+            form(action="/search", method="post")
+                .form-group
+                    input#name.form-control(type='text', placeholder='Search' name='query' required)
+            if results
+                p
+                    | lalal.
+            br
+            br
             br
             br
             p.h3
