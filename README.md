@@ -25,3 +25,8 @@ This website is built with (and any result may relate to practical version of mo
 - [x] "/password" onkeyup event POST check whether intended password is strong enough
 - [ ] "/search" POST method would post search query to the server asking result
 - [x] "/account" after login, a account page should be shown.
+
+## Endpoints for mounting an SQL injection
+
+- Register page form submission.
+- Login page form submission.
